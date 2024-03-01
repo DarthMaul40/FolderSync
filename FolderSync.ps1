@@ -6,11 +6,17 @@
     The script can synchronize a folder, including the file permissions if needed.
     The results can be saved in a log file
     
-    .PARAMETER source
+    .PARAMETER Source
     Mandatory - Specifies the source folder.
 
-    .PARAMETER destination
+    .PARAMETER Destination
     Mandatory - Specifies the replica folder.
+
+    .PARAMETER LogPath
+    Mandatory - Specifies the path for the logs.
+
+    .PARAMETER LogToConsole
+    Optional - if true, outputs the operations to the screen as well (slower)
 
     .EXAMPLE
     PS> .\FolderSync.ps1 -Source "F:\Storage Reports\" -Destination "D:\Storage Reports" -LogPath "C:\Temp\Logs\" -LogToConsole:$true
