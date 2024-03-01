@@ -59,6 +59,7 @@ else {
 $canContinue = $isSrcDirOK -and $isDstDirOK -and $isLogDirOK
 if (-not $canContinue) {
     Pause -message ("The script stopped due to: " + $exitErrortMsg + ". Press any key to exit")
+    Exit
 }
 
 $global:logFile = Join-Path -Path $LogPath -ChildPath ("FolderSync_" + (Get-Date -Format "yyyyMMddHHmmss") + ".log")
