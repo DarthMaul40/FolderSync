@@ -1,6 +1,6 @@
 function Pause([String]$message) {
     Write-Host $message
-    if ($isIse) {
+    if ($global:isIse) {
         Read-Host
     }
     else {
@@ -27,23 +27,20 @@ function CreateFolder([String]$Folder) {
 }
 
 function getLogTime {
-    return Get-Date -Format $logTimeFormat 
+    return Get-Date -Format $global:logTimeFormat 
 }
 
-function LogInfo([string]$Message, [string]$logFile) {
-    Write-Host $Message
+function LogInfo([string]$Message) {
     $Message = ((getLogTime) + " - [Info] - " + $Message)
-    $Message | Out-File -FilePath $logFile -Append
+    $Message | Out-File -FilePath $global:logFile -Append
 }
 
 function LogSuccess([string]$Message) {
-    Write-Host $Message
     $Message = ((getLogTime) + " - [Success] - " + $Message)
-    $Message | Out-File -FilePath $logFile -Append
+    $Message | Out-File -FilePath $global:logFile -Append
 }
 
 function LogError([string]$Message) {
-    Write-Host $Message
     $Message = ((getLogTime) + " - [Error] - " + $Message)
-    $Message | Out-File -FilePath $logFile -Append
+    $Message | Out-File -FilePath $global:logFile -Append
 }
